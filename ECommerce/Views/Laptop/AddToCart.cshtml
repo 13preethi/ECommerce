@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ECommerce.Models.LaptopModel>
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>AddToCart</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Processor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Operating_System)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Brand)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Processor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Operating_System)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+
+    <td>
+        @Html.ActionLink("Select", "SelectedLaptop", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
